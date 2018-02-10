@@ -5,6 +5,7 @@ using XamarinHttpServicesSample.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Autofac;
+using XamarinHttpServicesSample.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XamarinHttpServicesSample
@@ -31,6 +32,9 @@ namespace XamarinHttpServicesSample
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+
+            containerRegistry.Register<IRequestsService, RequestsService>();
+            containerRegistry.Register<IMonkeyService, MonkeysService>();
         }
     }
 }
