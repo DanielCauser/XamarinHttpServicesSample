@@ -7,3 +7,10 @@
 
 4 - Need of httpclient class as a singleton https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 
+1 - Instead of using the Mono Stack for the HttpClient implementation make sure you are using the target platform ones.
+(Project properties - iOS/Android Build - HttpClient implementation)
+Min: 29:37 :https://www.youtube.com/watch?v=Lxyb_DOhGnk&feature=youtu.be
+
+Use only one instance of HttpClient:
+https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
+
