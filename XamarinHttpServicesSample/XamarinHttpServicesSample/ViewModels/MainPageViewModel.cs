@@ -44,7 +44,11 @@ namespace XamarinHttpServicesSample.ViewModels
 
         private async Task LoadPersons()
         {
+            if (IsBusy) return;
+
+            IsBusy = true;
             Persons = await _personService.GetPersonsAsync();
+            IsBusy = false;
         }
     }
 }
