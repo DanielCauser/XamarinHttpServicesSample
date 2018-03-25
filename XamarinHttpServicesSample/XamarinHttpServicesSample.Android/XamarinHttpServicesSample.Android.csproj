@@ -12,7 +12,7 @@
     <RootNamespace>XamarinHttpServicesSample.Droid</RootNamespace>
     <AssemblyName>XamarinHttpServicesSample.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -97,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinHttpServicesSample\XamarinHttpServicesSample.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{38D6C95B-EE18-411B-A31D-883F42090D59}</Project>
       <Name>XamarinHttpServicesSample</Name>
     </ProjectReference>
   </ItemGroup>

@@ -26,6 +26,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -132,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinHttpServicesSample\XamarinHttpServicesSample.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{38D6C95B-EE18-411B-A31D-883F42090D59}</Project>
       <Name>XamarinHttpServicesSample</Name>
     </ProjectReference>
   </ItemGroup>

@@ -14,3 +14,6 @@ Min: 29:37 :https://www.youtube.com/watch?v=Lxyb_DOhGnk&feature=youtu.be
 Use only one instance of HttpClient:
 https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 
+.ConfigureAwait(false)
+https://medium.com/bynder-tech/c-why-you-should-use-configureawait-false-in-your-library-code-d7837dce3d7f
+

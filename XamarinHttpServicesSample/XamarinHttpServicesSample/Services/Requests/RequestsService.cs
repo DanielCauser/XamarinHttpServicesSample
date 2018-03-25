@@ -18,12 +18,14 @@ namespace XamarinHttpServicesSample.Services
         {
             setupHttpClient(token);
 
-            HttpResponseMessage response = await HttpClientInstance.GetAsync(uri);
+            HttpResponseMessage response = await HttpClientInstance.GetAsync(uri)
+                                                                   .ConfigureAwait(false);;
 
             await HandleResponse(response);
 
             string serialized = await response.Content.ReadAsStringAsync();
-            TResult result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
+            TResult result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized))
+                                       .ConfigureAwait(false);
 
             return result;
         }
@@ -37,12 +39,16 @@ namespace XamarinHttpServicesSample.Services
         {
             setupHttpClient(token);
 
-            string serialized = await Task.Run(() => JsonConvert.SerializeObject(data));
-            HttpResponseMessage response = await HttpClientInstance.PostAsync(uri, new StringContent(serialized, Encoding.UTF8, "application/json"));
+            string serialized = await Task.Run(() => JsonConvert.SerializeObject(data))
+                                          .ConfigureAwait(false);
+            
+            HttpResponseMessage response = await HttpClientInstance.PostAsync(uri, new StringContent(serialized, Encoding.UTF8, "application/json"))
+                                                                   .ConfigureAwait(false);
 
             await HandleResponse(response);
 
-            string responseData = await response.Content.ReadAsStringAsync();
+            string responseData = await response.Content.ReadAsStringAsync()
+                                                .ConfigureAwait(false);
 
             return await Task.Run(() => JsonConvert.DeserializeObject<TResult>(responseData));
         }
@@ -56,12 +62,16 @@ namespace XamarinHttpServicesSample.Services
         {
             setupHttpClient(token);
             
-            string serialized = await Task.Run(() => JsonConvert.SerializeObject(data));
-            HttpResponseMessage response = await HttpClientInstance.PutAsync(uri, new StringContent(serialized, Encoding.UTF8, "application/json"));
+            string serialized = await Task.Run(() => JsonConvert.SerializeObject(data))
+                                          .ConfigureAwait(false);
+            
+            HttpResponseMessage response = await HttpClientInstance.PutAsync(uri, new StringContent(serialized, Encoding.UTF8, "application/json"))
+                                                                   .ConfigureAwait(false);
 
             await HandleResponse(response);
 
-            string responseData = await response.Content.ReadAsStringAsync();
+            string responseData = await response.Content.ReadAsStringAsync()
+                                                .ConfigureAwait(false);
 
             return await Task.Run(() => JsonConvert.DeserializeObject<TResult>(responseData));
         }
@@ -81,7 +91,8 @@ namespace XamarinHttpServicesSample.Services
         {
             if (!response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
+                var content = await response.Content.ReadAsStringAsync()
+                                            .ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.Unauthorized)
                 {
@@ -91,7 +102,5 @@ namespace XamarinHttpServicesSample.Services
                 throw new HttpRequestException(content);
             }
         }
-
-        
     }
 }
