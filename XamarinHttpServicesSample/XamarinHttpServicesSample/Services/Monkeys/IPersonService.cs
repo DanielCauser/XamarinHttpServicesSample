@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace XamarinHttpServicesSample.Services
 {
-    public interface IMonkeyService
+    public interface IPersonService
     {
-        Task<IEnumerable<Models.Monkeys>> GetMonkeysAsync();
+        Task<IEnumerable<Models.Person>> GetPersonsAsync();
     }
 }

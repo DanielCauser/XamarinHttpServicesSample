@@ -5,7 +5,45 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+        <Button Text="Reload Persons"
+                Command="{Binding ReloadPersonsCommand}"/>
 
+        <ListView ItemsSource="{Binding Persons}" 
+                  RowHeight="100"
+                  CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="20" VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.RowSpan="2"
+                                   Grid.Column="0"
+                                   Source="{Binding Photo}"/>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding BasicInfo}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="MiddleTruncation"/>
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="{Binding Region}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="MiddleTruncation"/>
+                        </Grid> 
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

@@ -6,22 +6,22 @@ using XamarinHttpServicesSample.Models;
 
 namespace XamarinHttpServicesSample.Services
 {
-    public class MonkeysService : IMonkeyService
+    public class PersonService : IPersonService
     {
         private readonly IRequestsService _requestService;
 
-        public MonkeysService(IRequestsService requestService)
+        public PersonService(IRequestsService requestService)
         {
             _requestService = requestService;
         }
-        public async Task<IEnumerable<Monkeys>> GetMonkeysAsync()
+
+        public async Task<IEnumerable<Person>> GetPersonsAsync()
         {
-            UriBuilder builder = new UriBuilder(AppSettings.MonkeysEndpoint);
-            builder.AppendToPath("monkeys");
+            UriBuilder builder = new UriBuilder($"{AppSettings.PersonsEndpoint}?ext&amount=25");
 
             var url = builder.ToString();
 
-            return await _requestService.GetAsync<IEnumerable<Monkeys>>(url);
+            return await _requestService.GetAsync<IEnumerable<Person>>(url);
         }
     }
 }

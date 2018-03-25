@@ -10,19 +10,9 @@ namespace XamarinHttpServicesSample.Services
 {
     public class RequestsService : IRequestsService
     {
-        private static HttpClient instance;
+        private static HttpClient _instance;
 
-        private static HttpClient HttpClientInstance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new HttpClient();
-                }
-                return instance;
-            }
-        }
+        private static HttpClient HttpClientInstance => _instance ?? (_instance = new HttpClient());
 
         public async Task<TResult> GetAsync<TResult>(string uri, string token = "")
         {

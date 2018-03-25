@@ -34,7 +34,7 @@ namespace XamarinHttpServicesSample
             containerRegistry.RegisterForNavigation<MainPage>();
 
             containerRegistry.Register<IRequestsService, RequestsService>();
-            containerRegistry.Register<IMonkeyService, MonkeysService>();
+            containerRegistry.Register<IPersonService, PersonService>();
         }
     }
 }
